@@ -26,4 +26,6 @@ Something LIKE this:
 
 ![app goal, with notes and lists](./assets/goal.png)
 
-We'll be implementing the "Notes" section first.
+Feel free to improve the minimal and palette-challenged CSS we've got.
+
+**We'll be implementing the "Notes" section first.**
