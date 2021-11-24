@@ -29,7 +29,7 @@ class App extends Component {
 	render() {
 		// it is checking the total of all completed list
 		let CompletedListTotal = () => {
-			return <div>Total Completed List : 0</div>;
+			return <div className="stats">Total Completed List : 0</div>;
 		};
 
 		// the main list
@@ -61,9 +61,9 @@ class App extends Component {
 							onInput={this.changeAllList}
 						/>
 						<button className="small-button">Add item</button>
-						<uL>
+						<ul>
 							<li>{this.state.childList}</li>
-						</uL>
+						</ul>
 					</form>
 				</div>
 			);
@@ -90,7 +90,7 @@ class App extends Component {
 			<div className="app">
 				<NavBar id="navBar" />
 				<div>
-					<CompletedListTotal className="totalList" />
+					<CompletedListTotal />
 					<MainList className="list" />
 					<ChildList />
 				</div>
