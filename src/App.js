@@ -8,6 +8,7 @@ class App extends Component {
 		this.state = {
 			mainList: "",
 			childList: "",
+			noteList: "",
 		};
 	}
 	// for the mainList input
@@ -17,29 +18,38 @@ class App extends Component {
 		});
 	};
 
+	// Main submit
+	mainSubmit = (e) => {
+		e.preventDefault();
+		this.setState({
+			mainList: e.target.value,
+		});
+	};
+
 	render() {
 		// it is checking the total of all completed list
 		let CompletedListTotal = () => {
 			return <div>Total Completed List : 0</div>;
 		};
 
+		// the main list
 		let MainList = () => {
 			return (
 				<div>
 					<h2>Lists</h2>
-					<form>
+					<form onSubmit={this.mainSubmit}>
 						<input
 							name="mainList"
-							type="text"
 							value={this.state.mainList}
 							onInput={this.changeAllList}
 						/>
-						<button>Add List</button>
+						<button type="submit">Add List</button>
 					</form>
 				</div>
 			);
 		};
 
+		// the small list
 		let ChildList = () => {
 			return (
 				<div>
@@ -47,11 +57,10 @@ class App extends Component {
 					<form>
 						<input
 							name="childList"
-							type="text"
 							value={this.state.childList}
 							onInput={this.changeAllList}
 						/>
-						<button>Add List</button>
+						<button className="small-button">Add item</button>
 						<uL>
 							<li>{this.state.childList}</li>
 						</uL>
@@ -60,14 +69,34 @@ class App extends Component {
 			);
 		};
 
+		// the note
+		let AllNotes = () => {
+			return (
+				<div>
+					<h2>Notes</h2>
+					<form>
+						<input
+							name="noteList"
+							value={this.state.noteList}
+							onInput={this.changeAllList}
+						/>
+						<button>Add Note</button>
+					</form>
+				</div>
+			);
+		};
+
 		return (
 			<div className="app">
-				<NavBar />
-				<CompletedListTotal />
-				<MainList />
-				<ChildList />
-				<ChildList />
-				<ChildList />
+				<NavBar id="navBar" />
+				<div>
+					<CompletedListTotal className="totalList" />
+					<MainList className="list" />
+					<ChildList />
+				</div>
+				<div>
+					<AllNotes className="note" />
+				</div>
 			</div>
 		);
 	}
